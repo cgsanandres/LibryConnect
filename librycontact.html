@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LibryConnect | Contact</title>
+<style>
+body{margin:0;font-family:Georgia;background:#fdf6e3;}
+header{background:#6b4226;padding:15px;color:white;}
+nav a{color:white;margin:10px;text-decoration:none;font-weight:bold;}
+.section{padding:40px;}
+input,textarea{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+button{
+    padding:10px 20px;
+    background:#c59d5f;
+    border:none;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+}
+button:hover{background:#b07f3f;}
+</style>
+</head>
+<body>
+
+<header>
+<h2>Contact Us</h2>
+<nav>
+<a href="libryindex.html">Home</a>
+<a href="librymembers.html">Members</a>
+<a href="libryloans.html">Loans</a>
+<a href="libryprofile.html">Profile</a>
+<a href="libryabout.html">About</a>
+<a href="librycontact.html">Contact</a>
+<a href="librylogin.html" onclick="logout()">Logout</a>
+</nav>
+</header>
+
+<div class="section">
+<h2>Get in Touch</h2>
+<form onsubmit="return sendMsg()">
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea rows="4" placeholder="Message" required></textarea>
+<button type="submit">Send</button>
+</form>
+</div>
+
+<script>
+function sendMsg(){
+    alert("Message sent!");
+    return false;
+}
+</script>
+
+</body>
+</html>

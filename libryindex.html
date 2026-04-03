@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LibryConnect | Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{box-sizing:border-box;font-family:'Georgia', serif;}
+body{margin:0;background:#fdf6e3;color:#333;}
+header{
+    background:#6b4226;
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+header h1{color:#fdf6e3;margin:0;}
+nav a{
+    color:#fdf6e3;text-decoration:none;margin-left:20px;font-weight:bold;
+}
+nav a:hover{text-decoration:underline;}
+.hero{
+    height:60vh;
+    background:url('https://images.unsplash.com/photo-1512820790803-83ca734da794') no-repeat center/cover;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#fff;
+}
+.hero h2{font-size:48px;margin-bottom:10px;text-shadow:2px 2px #333;}
+.hero p{font-size:20px;text-shadow:1px 1px #333;}
+.section{padding:60px 40px;text-align:center;}
+.search-bar{margin-top:20px;}
+.search-bar input{padding:10px;width:60%;border-radius:5px;border:1px solid #ccc;}
+.search-bar button{padding:10px 15px;background:#c59d5f;border:none;color:white;border-radius:5px;cursor:pointer;font-weight:bold;}
+.search-bar button:hover{background:#b07f3f;}
+footer{background:#6b4226;color:white;text-align:center;padding:15px;margin-top:50px;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>LibryConnect</h1>
+<nav>
+<a href="libryindex.html">Home</a>
+<a href="librymembers.html">Members</a>
+<a href="libryloans.html">Loans</a>
+<a href="libryprofile.html">Profile</a>
+<a href="libryabout.html">About</a>
+<a href="librycontact.html">Contact</a>
+<a href="librylogin.html" onclick="logout()">Logout</a>
+</nav>
+</header>
+
+<section class="hero">
+<div>
+<h2>Welcome to LibryConnect</h2>
+<p>Search, Borrow, Connect — All in one library portal</p>
+<div class="search-bar">
+<input type="text" placeholder="Search books, authors...">
+<button>Search</button>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2>Featured Books</h2>
+<p>Discover new arrivals and popular titles</p>
+<div style="display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
+<div style="background:white;width:180px;padding:15px;border-radius:8px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+<img src="https://via.placeholder.com/150" style="width:100%;border-radius:5px;">
+<p><b>The Great Gatsby</b></p>
+</div>
+<div style="background:white;width:180px;padding:15px;border-radius:8px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+<img src="https://via.placeholder.com/150" style="width:100%;border-radius:5px;">
+<p><b>1984</b></p>
+</div>
+<div style="background:white;width:180px;padding:15px;border-radius:8px;box-shadow:0 5px 15px rgba(0,0,0,0.1);">
+<img src="https://via.placeholder.com/150" style="width:100%;border-radius:5px;">
+<p><b>To Kill a Mockingbird</b></p>
+</div>
+</div>
+</section>
+
+<footer>
+© 2026 LibryConnect | All Rights Reserved
+</footer>
+
+<script>
+function logout(){
+    alert('Logged out successfully.');
+}
+</script>
+
+</body>
+</html>

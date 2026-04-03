@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>LibryConnect | Profile</title>
+<style>
+body{margin:0;font-family:Georgia;background:#fdf6e3;}
+header{background:#6b4226;padding:15px;color:white;}
+nav a{color:white;margin:10px;text-decoration:none;font-weight:bold;}
+.profile{padding:40px;}
+.box{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+</style>
+</head>
+<body>
+
+<header>
+<h2>LibryConnect - Profile</h2>
+<nav>
+<a href="libryindex.html">Home</a>
+<a href="librymembers.html">Members</a>
+<a href="libryloans.html">Loans</a>
+<a href="libryprofile.html">Profile</a>
+<a href="libryabout.html">About</a>
+<a href="librycontact.html">Contact</a>
+<a href="librylogin.html" onclick="logout()">Logout</a>
+</nav>
+</header>
+
+<div class="profile">
+<div class="box">
+<h3>User Profile</h3>
+<p>Name: <span id="name"></span></p>
+<p>ID: <span id="id"></span></p>
+<p>Status: Active Member</p>
+</div>
+</div>
+
+<script>
+document.getElementById("name").innerText = localStorage.getItem("libryID") || "User";
+document.getElementById("id").innerText = localStorage.getItem("libryID") || "ID";
+</script>
+
+</body>
+</html>
