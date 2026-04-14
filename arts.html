@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Arts | LibryConnect</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            --ink-black: #1a1a1a;
+            --parchment: #fdfaf0;
+            --gallery-gray: #e5e5e5;
+            --canvas: #ffffff;
+            --gold-leaf: #d4af37;
+            --shadow: 12px 12px 0px rgba(0, 0, 0, 0.05);
+        }
+
+        * { box-sizing: border-box; transition: 0.3s; }
+        body { 
+            margin: 0; 
+            background: var(--parchment); 
+            color: var(--ink-black); 
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* NAVBAR - GALLERY THEME */
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 5%; background: var(--canvas); border-bottom: 4px solid var(--ink-black);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .logo { font-family: 'Libre Baskerville', serif; font-size: 24px; font-weight: bold; text-decoration: none; color: var(--ink-black); }
+
+        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
+
+        /* PORTAL HEADER */
+        .dept-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .dept-header h1 { font-family: 'Libre Baskerville', serif; font-size: 3rem; margin: 0; text-transform: uppercase; letter-spacing: 4px; }
+        .dept-header p { font-weight: 600; color: #888; text-transform: uppercase; letter-spacing: 2px; font-size: 11px; margin-top: 10px; }
+        .header-line { width: 50px; height: 3px; background: var(--gold-leaf); margin: 20px auto; }
+
+        /* CURATED FILTERS */
+        .gallery-filters {
+            display: flex; justify-content: center; gap: 15px; margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: transparent; border: 1px solid var(--ink-black);
+            padding: 10px 25px; font-size: 10px; font-weight: 800;
+            cursor: pointer; text-transform: uppercase; letter-spacing: 1px;
+        }
+        .filter-btn:hover, .filter-btn.active { background: var(--ink-black); color: white; }
+
+        /* GALLERY GRID */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .art-card {
+            background: var(--canvas);
+            border: 1px solid var(--gallery-gray);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+        .art-card:hover { transform: translateY(-5px); border-color: var(--gold-leaf); }
+        
+        .ref-no { font-size: 9px; font-weight: 800; color: var(--gold-leaf); margin-bottom: 10px; }
+        .art-title { font-family: 'Libre Baskerville', serif; font-size: 1.3rem; margin-bottom: 10px; }
+        .art-meta { font-size: 12px; color: #666; font-weight: 600; line-height: 1.6; }
+
+        .status-stamp {
+            margin-top: 20px;
+            font-family: 'Libre Baskerville', serif;
+            font-weight: bold;
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #2e7d32;
+            border: 1px solid #2e7d32;
+            padding: 4px 8px;
+            width: fit-content;
+        }
+
+        .btn-curate {
+            margin-top: 20px;
+            background: var(--ink-black);
+            color: white;
+            border: none;
+            padding: 12px;
+            font-weight: 800;
+            font-size: 10px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .btn-curate:hover { background: #444; }
+
+        @media(max-width: 600px) {
+            .dept-header h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="index.html" class="logo">✒️ LibryConnect</a>
+    <div style="font-size: 10px; font-weight: 800; letter-spacing: 1px;">SECTION: 700-799</div>
+</nav>
+
+<main class="container">
+    <header class="dept-header">
+        <h1>The Arts</h1>
+        <p>Aesthetics, Art History, Architecture, and Design</p>
+        <div class="header-line"></div>
+    </header>
+
+    <div class="gallery-filters">
+        <button class="filter-btn active">All Collections</button>
+        <button class="filter-btn">Visual Arts</button>
+        <button class="filter-btn">Architecture</button>
+        <button class="filter-btn">Photography</button>
+        <button class="filter-btn">Performing Arts</button>
+    </div>
+
+    <div class="gallery-grid">
+        <!-- Art Entry 1 -->
+        <div class="art-card">
+            <div>
+                <div class="ref-no">CATALOGUE REF: ART-701</div>
+                <div class="art-title">The Renaissance Masterpieces</div>
+                <div class="art-meta">Curated by Sarah Lopez<br>Folio • High Definition Prints</div>
+            </div>
+            <div class="status-stamp">In Gallery</div>
+            <button class="btn-curate" onclick="curateItem(this)">Request Loan</button>
+        </div>
+
+        <!-- Art Entry 2 -->
+        <div class="art-card">
+            <div>
+                <div class="ref-no">CATALOGUE REF: ART-745</div>
+                <div class="art-title">Modern Architectural Theory</div>
+                <div class="art-meta">Prof. Julian Thorne<br>Hardcover • 2023 Edition</div>
+            </div>
+            <div class="status-stamp">In Gallery</div>
+            <button class="btn-curate" onclick="curateItem(this)">Request Loan</button>
+        </div>
+
+        <!-- Art Entry 3 -->
+        <div class="art-card">
+            <div>
+                <div class="ref-no">CATALOGUE REF: ART-812</div>
+                <div class="art-title">Stagecraft & Set Design</div>
+                <div class="art-meta">Theatrical Archives<br>Includes Original Sketches</div>
+            </div>
+            <div class="status-stamp" style="color: #c62828; border-color: #c62828;">On Exhibition</div>
+            <button class="btn-curate" style="background: #ccc; cursor: not-allowed;">Place Hold</button>
+        </div>
+    </div>
+</main>
+
+<script>
+    function curateItem(btn) {
+        btn.innerText = "CURATING...";
+        setTimeout(() => {
+            const stamp = btn.previousElementSibling;
+            stamp.innerText = "LOAN SECURED";
+            stamp.style.color = "#d4af37";
+            stamp.style.borderColor = "#d4af37";
+            btn.innerText = "ADDED TO LEDGER";
+            btn.style.background = "#d4af37";
+            alert("Exhibition item secured for research. Entry added to your account.");
+        }, 800);
+    }
+</script>
+
+</body>
+</html>
