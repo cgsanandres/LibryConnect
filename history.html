@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History Archive | LibryConnect</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            --ink-sepia: #4b3832;
+            --parchment: #fdfaf0;
+            --aged-paper: #efd9b4;
+            --manuscript-gold: #b8860b;
+            --stamp-ink: #7a3e3e;
+            --white: #ffffff;
+            --shadow: 10px 10px 0px rgba(75, 56, 50, 0.05);
+        }
+
+        * { box-sizing: border-box; transition: 0.3s; }
+        body { 
+            margin: 0; 
+            background: var(--parchment); 
+            color: var(--ink-sepia); 
+            font-family: 'Montserrat', sans-serif;
+            /* Subtle Aged Paper Texture Effect */
+            background-image: url('https://transparenttextures.com');
+        }
+
+        /* NAVBAR - CONSISTENT */
+        .navbar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 5%; background: var(--white); border-bottom: 3px solid var(--manuscript-gold);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .logo { font-family: 'Libre Baskerville', serif; font-size: 24px; font-weight: bold; text-decoration: none; color: var(--ink-sepia); }
+
+        .container { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+
+        /* PORTAL HEADER */
+        .dept-header {
+            border: 2px solid var(--manuscript-gold);
+            background: var(--aged-paper);
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: var(--shadow);
+            margin-bottom: 40px;
+            position: relative;
+        }
+        .dept-header h1 { font-family: 'Libre Baskerville', serif; font-size: 2.5rem; margin: 0; color: var(--ink-sepia); }
+        .dept-header p { font-weight: 600; color: #5d4037; text-transform: uppercase; letter-spacing: 1px; font-size: 12px; }
+        
+        /* CHRONOLOGICAL FILTERS */
+        .history-filters {
+            display: flex; gap: 10px; margin-bottom: 30px;
+            overflow-x: auto; padding-bottom: 10px;
+        }
+        .era-tab {
+            background: var(--white); border: 1px solid var(--manuscript-gold);
+            padding: 8px 20px; border-radius: 4px; font-size: 11px; font-weight: 800;
+            cursor: pointer; text-transform: uppercase; white-space: nowrap;
+        }
+        .era-tab:hover, .era-tab.active { background: var(--manuscript-gold); color: white; }
+
+        /* LEDGER ROWS */
+        .archive-box { background: var(--white); border: 1px solid #d7ccc8; border-radius: 4px; box-shadow: var(--shadow); }
+        .ledger-row {
+            display: grid; grid-template-columns: 1fr 150px 150px;
+            padding: 25px 30px; border-bottom: 1px solid #efebe9; align-items: center;
+        }
+        .book-title { font-family: 'Libre Baskerville', serif; font-weight: 800; font-size: 16px; display: block; }
+        .book-meta { font-size: 12px; color: #8d6e63; font-weight: 600; margin-top: 5px; }
+
+        .archive-stamp {
+            font-family: 'Libre Baskerville', serif; font-weight: bold;
+            text-transform: uppercase; font-size: 12px; text-align: center;
+            padding: 5px; border: 2px solid #388e3c; color: #388e3c;
+            transform: rotate(3deg); width: fit-content;
+        }
+
+        .btn-request {
+            background: var(--ink-sepia); color: white; border: none;
+            padding: 12px; font-weight: 800; font-size: 11px;
+            border-radius: 4px; cursor: pointer; text-transform: uppercase;
+        }
+        .btn-request:hover { background: var(--manuscript-gold); transform: translateY(-2px); }
+
+        @media(max-width: 768px) {
+            .ledger-row { grid-template-columns: 1fr; gap: 15px; }
+            .dept-header h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="index.html" class="logo">✒️ LibryConnect</a>
+    <div style="font-size: 11px; font-weight: 800; color: var(--manuscript-gold);">DEPT: HISTORY</div>
+</nav>
+
+<main class="container">
+    <header class="dept-header">
+        <p>Archive Reference: 900-999</p>
+        <h1>History & Genealogy</h1>
+        <p style="margin-top: 10px;">Primary sources, ancient manuscripts, and historical chronicles.</p>
+    </header>
+
+    <div class="history-filters">
+        <div class="era-tab active">All Eras</div>
+        <div class="era-tab">Ancient</div>
+        <div class="era-tab">Medieval</div>
+        <div class="era-tab">Modern</div>
+        <div class="era-tab">Contemporary</div>
+    </div>
+
+    <div class="archive-box">
+        <!-- History Entry 1 -->
+        <div class="ledger-row">
+            <div>
+                <span class="book-title">A History of Ancient Rome</span>
+                <span class="book-meta">Marcus Aurelius • Ref: HIS-901</span>
+            </div>
+            <div class="archive-stamp">Available</div>
+            <button class="btn-request" onclick="requestHistory(this)">Secure Loan</button>
+        </div>
+
+        <!-- History Entry 2 -->
+        <div class="ledger-row">
+            <div>
+                <span class="book-title">The Magna Carta: 1215 Facsimile</span>
+                <span class="book-meta">King John • Ref: HIS-215</span>
+            </div>
+            <div class="archive-stamp">Available</div>
+            <button class="btn-request" onclick="requestHistory(this)">Secure Loan</button>
+        </div>
+
+        <!-- History Entry 3 -->
+        <div class="ledger-row">
+            <div>
+                <span class="book-title">Industrial Revolution Ledger</span>
+                <span class="book-meta">Archival Records • Ref: HIS-850</span>
+            </div>
+            <div class="archive-stamp" style="border-color: var(--stamp-ink); color: var(--stamp-ink);">Reserved</div>
+            <button class="btn-request" style="background: #d7ccc8; cursor: not-allowed;">Waitlist</button>
+        </div>
+    </div>
+</main>
+
+<script>
+    function requestHistory(btn) {
+        btn.innerText = "RECORDING...";
+        setTimeout(() => {
+            const stamp = btn.previousElementSibling;
+            stamp.innerText = "SECURED";
+            stamp.style.color = "#5d4037";
+            stamp.style.borderColor = "#5d4037";
+            btn.innerText = "FILED";
+            btn.style.background = "#a1887f";
+            alert("Historical record filed. Entry added to your central ledger.");
+        }, 800);
+    }
+</script>
+
+</body>
+</html>
